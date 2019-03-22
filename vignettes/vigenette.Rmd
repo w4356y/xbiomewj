@@ -1,0 +1,47 @@
+---
+title: "Example of Package xbiomewj"
+author: "Wei Jiang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+
+```
+
+## Data
+
+```{r env, fig.show='hold'}
+library(vegan)
+library(ggplot2)
+library(xbiomewj)
+library(dplyr)
+library(ggbiplot)
+load("data/phylo.rda")
+phylo
+```
+
+## 16S Plot
+
+```{r plot, fig.width=8, fig.height=6}
+pcoa = plot_pcoa(otu_table(phylo), sample_data(phylo), "Response", "bray")
+pcoa$plot
+pca = plot_pca(otu_table(phylo),sample_data(phylo),"Response")
+pca$plot
+permanova_test(otu_table(phylo), sample_data(phylo), "Response","bray")
+advanced_permanova_test(otu_table(phylo), sample_data(phylo), "Response","Diagnosis","bray")
+plot_pcoa_with_shape(otu_table(phylo),sample_data(phylo),"Response","Diagnosis","bray")
+pcoa1 = plot_pcoa_plus_seq(plot_pcoa(otu_table(phylo), sample_data(phylo), "Response", "bray"),otu_table(phylo) %>% as.data.frame(), Response)
+plot_nmds(otu_table(phylo), sample_data(phylo), "Response")
+```
+
