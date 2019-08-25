@@ -5,8 +5,8 @@
 ##
 ## File description: text
 ##
-## Written by Wei Jiang <jiangwei@xbiome.com>, March 2019
-## Updated by Wei Jiang <jiangwei@xbiome.com>, 2019-03-21
+## Written by Wei Jiang <w4356y@163.com>, March 2019
+## Updated by Wei Jiang <w4356y@163.com>, 2019-03-21
 ##############################################################################
 
 
@@ -23,7 +23,7 @@
 #' which will trim the sequence with length trim_len from the end of
 #' reverse reads as features.
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param seqRes_double_exp output from dada2 results, list object containing
 #' @param trim_len the length of features that will be trimmed from, the end of reverse reads. Technically, this value should be no more
 #' than 217(or the length of single reads)
@@ -63,7 +63,7 @@ process_se <- function(seqRes_double_exp, trim_len){
 #' reverse reads as features. Mostly the same with process_se, but this
 #' function can trim more than single reads.
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param seqRes_double_exp output from dada2 results
 #' @param trim_len reads whose length is less than this value will be dumped
 #' @return A list contain Abd and Rel_Abd
@@ -118,7 +118,7 @@ pre_process <- function(seqRes_double_exp, trim_len){
 #' This function is used to group feature sequence into Genus level,
 #' Sequence with same Genus taxonomy will be add together.
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param taxa, a data frame/matrix with row names being sequece consistent
 #' with the column name of otu table.
 #' @param otu, otu table with rows being samples and columns being sequence
@@ -162,7 +162,7 @@ read_to_genus <- function(taxa, otu){
 #'
 #' Rarefy the original Otu table with minimal sample reads
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param otu Absolute count
 #' @return rarefied otu
 #' @export
@@ -222,7 +222,7 @@ write_biom_from_otu_table <- function(otu, rep_fp, biom_fp){
 #' replace zeros with half the minimal frequency;
 #' method with removeBatchEffect from limma;
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param otu_count otu table with absolute count
 #' @param batch factor or vector indicating batches
 #' @return otu table de-batch-effected
@@ -254,7 +254,7 @@ remove_batch=function(otu_count,batch){
 #'
 #' Give the OTU table, return the cosine distance matrix;
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param x OTU table, with rows being samples and columns being features.
 #' @return distance matrix
 #' @export
@@ -280,7 +280,7 @@ cosine <- function(x) {
 #'
 #' Give the OTU table, return the bray-curtis distance matrix
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param x OTU table, with rows being samples and columns being features
 #' @return distance matrix
 #' @export
@@ -333,7 +333,7 @@ pacman::p_load("pvclust","stats","ggplot2","vegan","ggbiplot","ade4","phyloseq")
 #'
 #' Give otu table and meta table to generate PCA plot
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param data OTU Table with rows being samples and columns being feature;
 #' @param meta meta table
 #' @param column a column in meta table used as reference
@@ -370,7 +370,7 @@ plot_pca <- function(data,meta,column){
 #'
 #' Permanova test used to test the dispersion difference
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param d OTU TABLE with rows being sample and columns being features
 #' @param meta metadata
 #' @param feature a column name in meta
@@ -406,7 +406,7 @@ permanova_test <- function(d, meta, feature, metric){
 #'
 #' Permanova test used to test the dispersion difference FOR two variables
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param d OTU TABLE with rows being sample and columns being features
 #' @param meta metadata
 #' @param feature1 a column name in meta
@@ -452,7 +452,7 @@ advanced_permanova_test = function(d, meta, feature1, feature2, metric){
 #'
 #' This function is used to plot PCoA graph of otu table
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param data OTU TABLE with rows being sample and columns being features
 #' @param meta metadata
 #' @param column a column in metadata used to add color
@@ -542,7 +542,7 @@ plot_pcoa <- function(data, meta, column, metric, trefile=""){
 #'
 #' This function is used to plot PCoA with 2 variables, display in graph as color and shape
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param data OTU TABLE with rows being sample and columns being features
 #' @param meta metadata
 #' @param column column in meta table used to plot color
@@ -651,7 +651,7 @@ plot_pcoa_with_shape = function(data, meta, column, col_control, metric, trefile
 #' This function is used to combine PCoA graph and the distribution plot of
 #' highly related sequence in PC1 axis
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param pcoa a pcoa object generate from plot_pcoa function
 #' @param otu_df, the otu table used to calculate the correlation between PC1 component
 #' and sequence feature across all samples. Relative abundant otu table is advised.
@@ -759,7 +759,7 @@ plot_pcoa_plus_seq = function(pcoa,otu_df,Response,is_sequence=TRUE){
 #'
 #' plot Non-metric Multi-Dimensional Analysis results
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param data OTU table with rows being sample names, and columns being features
 #' @param meta meta table, with rows being sample names
 #' @param column a scalar, quoted, denoted which environment factor should be plot with color
@@ -832,7 +832,7 @@ plot_roc = function(model, train_selected){
 #'
 #' plot ROC curve in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param model a model after trained
 #' @param test_selected test dataset
 #' @return the AUC value in test set
@@ -867,7 +867,7 @@ plot_test_roc=function(model, test_data){
 #'
 #' apply Random Forest Model for trainning in train set and test in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param test test SET
 #' @param n seed
@@ -931,7 +931,7 @@ rf_model=function(train, test, n){
 #'
 #' Apply Support Vector Machine Linear for trainning in train set and test in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param test test SET
 #' @param  n seed
@@ -988,7 +988,7 @@ svm_model=function(train, test, n=100, method="cv", fold=3){
 #'
 #' Apply Logistic Regression for trainning in train set and test in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param test test SET
 #' @param n seed
@@ -1035,7 +1035,7 @@ lr_model=function(train, test, n = 100, method = "cv", fold = 3){
 #'
 #' Apply XGB Model for trainning in train set and test in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param test test SET
 #' @return a list containing model, confusion matrix
@@ -1087,7 +1087,7 @@ xgb_model = function(train, test, n){
 #'
 #' Apply rfe in random forest for feature selection
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param n seed
 #' @return Feature Selection Results
@@ -1118,7 +1118,7 @@ rfe_select=function(dataset,n){
 #'
 #' Select feature with importance
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param dataset Train Dataset
 #' @param n seed
 #' @param top_n top n features selected
@@ -1165,7 +1165,7 @@ imp_select=function(dataset, n, top_n = 10){
 #'
 #' Plot Heatmap of OTU table
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param data an otu table
 #' @param feature feature used in otu table
 #' @param lable a column in data used to plot color bar
@@ -1204,7 +1204,7 @@ plot_heatmap=function(data, feature, label){
 #'
 #' Apply Generalized Linear Model for trainning in train set and test in test set
 #'
-#' @author Wei Jiang <jiangwei@xbiome.cn>
+#' @author Wei Jiang <w4356y@163.com>
 #' @param train train SET
 #' @param test test SET
 #' @param method method for tuning hyperprameters
